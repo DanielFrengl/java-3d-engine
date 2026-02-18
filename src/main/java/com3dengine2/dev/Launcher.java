@@ -4,16 +4,18 @@ import comcore.EngineManager;
 import comcore.WindowManager;
 import comcore.utils.Consts;
 import org.lwjgl.Version;
+import test.TestGame;
 
 import java.awt.*;
 
 public class Launcher {
     private static WindowManager window;
-    private static EngineManager engine;
+    private static TestGame game;
 
     public static void main(String[] args) {
          window = new WindowManager(Consts.TITLE, 1280, 720, false);
-         engine = new EngineManager();
+         game = new TestGame();
+         EngineManager engine = new EngineManager();
 
          try{
              engine.start();
@@ -25,5 +27,9 @@ public class Launcher {
 
     public static WindowManager getWindow() {
         return window;
+    }
+
+    public static TestGame getGame() {
+        return game;
     }
 }
